@@ -1,0 +1,48 @@
+{
+  "name": "nano-ajax",
+  "version": "0.0.1",
+  "description": "Microscopic ajax lib",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "mkdir -p ./lib && npm run 6to5",
+    "watch": "nodemon --exec \"npm run build && npm run test\"",
+    "6to5": "6to5 ./src --out-dir ./lib",
+    "test": "npm run test-spec && npm run test-coverage",
+    "test-spec": "npm run test-unit && npm run test-integration",
+    "test-unit": "mocha test/unit/test-*.js",
+    "test-integration": "mocha test/integration/test-*.js",
+    "test-coverage": "istanbul cover _mocha --report lcovonly test/test-*.js",
+    "travis-coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marionebl/nano-ajax.git"
+  },
+  "keywords": [
+    "ajax",
+    "micro"
+  ],
+  "author": "Mario Nebl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marionebl/nano-ajax/issues"
+  },
+  "homepage": "https://github.com/marionebl/nano-ajax",
+  "devDependencies": {
+    "6to5": "^1.10.3",
+    "body-parser": "^1.9.2",
+    "chai": "^1.9.2",
+    "coveralls": "^2.11.2",
+    "express": "^4.10.0",
+    "istanbul": "^0.3.2",
+    "mocha": "^2.0.1",
+    "openport": "0.0.3",
+    "sinon": "^1.11.0",
+    "xmlhttprequest": "^1.6.0"
+  },
+  "dependencies": {
+    "object-assign": "^1.0.0",
+    "small-eventemitter": "^1.0.1"
+  }
+}
