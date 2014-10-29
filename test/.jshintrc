@@ -1,0 +1,11 @@
+{
+  "predef": [
+    "it",
+    "should",
+    "describe",
+    "beforeEach",
+    "afterEach",
+    "before",
+    "after"
+    ]
+}
